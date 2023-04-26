@@ -82,24 +82,24 @@ Segundo (BEZERRA, 2007, p. 123):
 
 Exemplos práticos (agregação):
 
-- link:codigos/aula_quatro/Jogador.java[Jogador]
-- link:codigos/aula_quatro/Time.java[Time]
-- link:codigos/aula_quatro/Principal.java[Principal]
+- link:aula_quatro/codigos/Jogador.java[Jogador]
+- link:aula_quatro/codigos/Time.java[Time]
+- link:aula_quatro/codigos/Principal.java[Principal]
 
 Exemplos práticos (composição):
 
-- link:codigos/aula_quatro/Jogador2.java[Jogador]
-- link:codigos/aula_quatro/Time2.java[Time]
-- link:codigos/aula_quatro/Principal2.java[Principal]
+- link:aula_quatro/codigos/Jogador2.java[Jogador]
+- link:aula_quatro/codigos/Time2.java[Time]
+- link:aula_quatro/codigos/Principal2.java[Principal]
 
 = Associações e Classes Associativas / Ordinárias
 
 Exemplos práticos:
 
-- link:codigos/aula_quatro/Medico.java[Medico]
-- link:codigos/aula_quatro/Consulta.java[Consulta]
-- link:codigos/aula_quatro/Paciente.java[Paciente]
-- link:codigos/aula_quatro/Principal3.java[Principal]
+- link:aula_quatro/codigos/Medico.java[Medico]
+- link:aula_quatro/codigos/Consulta.java[Consulta]
+- link:aula_quatro/codigos/Paciente.java[Paciente]
+- link:aula_quatro/codigos/Principal3.java[Principal]
 
 
 
