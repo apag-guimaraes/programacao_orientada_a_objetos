@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
-public class MapSet {
+public class MapTest {
     public static void main(String[] args) {
         HashMap<String,Integer> map1 = new HashMap<>();
         map1.put("dez",10);
