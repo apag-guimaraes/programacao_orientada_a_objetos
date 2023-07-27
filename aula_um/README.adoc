@@ -11,6 +11,9 @@
 //make slides
 //make ebook
 
+== Diferenças entre PE e POO
+
+
 == Verificação / Instalação do OpenJDK
 
 Para verificar ou instalar o OpenJDK, acesse os links disponibilizados a seguir:
