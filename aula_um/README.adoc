@@ -21,7 +21,23 @@ image::imagens/img4.png[]
 
 image::imagens/img3.png[]
 
+image::imagens/img6.png[]
 
+image::imagens/img12.png[]
+
+image::imagens/img7.png[]
+
+image::imagens/img9.png[]
+
+image::imagens/img10.png[]
+
+image::imagens/img8.png[]
+
+image::imagens/img14.png[]
+
+image::imagens/img13.png[]
+
+image::imagens/img5.png[]
 
 == Verificação / Instalação do OpenJDK
 
@@ -151,5 +167,7 @@ link:classes/IMCEstruturado.java[classe IMCEstruturado]
 link:classes/IMCOO.java[classe IMCOO]
 
 link:classes/Pessoa.java[classe Pessoa]
+
+image::imagens/img11.png[]
 
 
