@@ -11,6 +11,19 @@
 //make slides
 //make ebook
 
+== Verificação / Instalação do OpenJDK
+
+Para verificar ou instalar o OpenJDK, acesse os links disponibilizados a seguir:
+
+- OPENJDK. How to download and install prebuilt OpenJDK packages. Disponível em: https://openjdk.java.net/install/. Acesso em: 29 de jan. 2022.
+- ORACLE. Como posso definir ou alterar a variável do sistema PATH? Disponível em: https://www.java.com/pt_BR/download/help/path.xml. Acesso em: 29 de jan. 2022.
+
+== Instalação da IDE Intellij
+
+Após a instalação do openJDK, o próximo passo é instalar a IDE, para fazer isso, basta usar o comando disponível abaixo:
+
+- sudo snap install intellij-idea-community --classic
+
 == Comandos javac e java
 
 A linguagem Java foi criada baseando nos princípios da orientação a objetos. Além de abordar os comandos sequenciais, desvios condicionais e laços de repetição,características típicas das linguagens estruturadas, esta linguagem usa os seguintes conceitos / recursos:
@@ -38,19 +51,6 @@ Não é necessário ter uma IDE para criar um aplicativo usando a linguagem Java
 - interpretação: os bytecodes são lidos pela máquina virtual (comando java) e são executados.
 
 Inicialmente verifique se o JDK está instalado na sua máquina, use o comando java --version. Caso este esteja devidamente instalado, a versão do JDK será impressa. Caso seja impressa a mensagem "comando não encontrado", pode ser que o JDK ainda não foi instalado ou não foi configurado devidamente. 
-
-== Verificação / Instalação do OpenJDK
-
-Para verificar ou instalar o OpenJDK, acesse os links disponibilizados a seguir:
-
-- OPENJDK. How to download and install prebuilt OpenJDK packages. Disponível em: https://openjdk.java.net/install/. Acesso em: 29 de jan. 2022.
-- ORACLE. Como posso definir ou alterar a variável do sistema PATH? Disponível em: https://www.java.com/pt_BR/download/help/path.xml. Acesso em: 29 de jan. 2022.
-
-== Instalação da IDE Intellij
-
-Após a instalação do openJDK, o próximo passo é instalar a IDE, para fazer isso, basta usar o comando disponível abaixo:
-
-- sudo snap install intellij-idea-community --classic
 
 == Fundamentos de POO
 
