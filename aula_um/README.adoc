@@ -17,11 +17,11 @@ image::imagens/img1.png[]
 
 image::imagens/img2.png[]
 
+image::imagens/img4.png[]
+
 image::imagens/img3.png[]
 
 image::imagens/img5.png[]
-
-image::imagens/img4.png[]
 
 image::imagens/img6.png[]
 
