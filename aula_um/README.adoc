@@ -1,5 +1,5 @@
 //caminho padrão para imagens
-:imagesdir: /images
+:imagesdir: /imagens
 :figure-caption: Figura
 :doctype: book
 
@@ -13,7 +13,7 @@
 
 == Diferenças entre PE e POO
 
-image::imagens/img1.png[]
+image::img1.png[]
 
 == Verificação / Instalação do OpenJDK
 
