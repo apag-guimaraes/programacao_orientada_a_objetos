@@ -33,13 +33,13 @@ image::imagens/img9.png[]
 
 image::imagens/img10.png[]
 
-image::imagens/img11.png[]
-
 image::imagens/img12.png[]
 
 image::imagens/img13.png[]
 
 image::imagens/img14.png[]
+
+image::imagens/img11.png[]
 
 == Verificação / Instalação do OpenJDK
 
