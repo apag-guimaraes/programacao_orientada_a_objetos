@@ -39,8 +39,6 @@ image::imagens/img13.png[]
 
 image::imagens/img14.png[]
 
-image::imagens/img11.png[]
-
 == Verificação / Instalação do OpenJDK
 
 Para verificar ou instalar o OpenJDK, acesse os links disponibilizados a seguir:
