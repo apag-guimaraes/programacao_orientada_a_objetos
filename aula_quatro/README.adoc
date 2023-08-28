@@ -29,7 +29,7 @@ Exemplo: public void usar(Cartao c) { ... }
 
 Figura 1
 
-image::diagrama_classe_dependencia.png[width=100,height=70]
+image::diagrama_classe_dependencia.png[]
 
 = Associação
 
@@ -46,7 +46,7 @@ Exemplo: public class Disciplina{
 
 Figura 2
 
-image::diagrama_classe_associacao.png[width=100,height=70]
+image::diagrama_classe_associacao.png[]
 
 = Navegabilidade e Multiplicidade
 
@@ -54,19 +54,19 @@ image::diagrama_classe_associacao.png[width=100,height=70]
 
 Figura 3
 
-image::um_para_um.png[width=100,height=100]
+image::um_para_um.png[]
 
 1 x N (A figura 4 demostra um exemplo da multiplicidade um para vários)
 
 Figura 4
 
-image::um_para_varios.png[width=100,height=100]
+image::um_para_varios.png[]
 
 N x N (A figura 5 demostra um exemplo da multiplicidade vários para vários)
 
 Figura 5
 
-image::varios_para_varios.png[width=100,height=100]
+image::varios_para_varios.png[]
 
 = Agregação x Composição
 
