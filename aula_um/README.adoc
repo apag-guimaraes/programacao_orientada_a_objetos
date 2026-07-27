@@ -150,7 +150,7 @@ Exemplos práticos:
 
 link:classes/Cachorro.java[classe Cachorro]
 
-link:classes/Principal_Cachorro1.java[classe Principal]
+link:classes/Principal_Cachorro.java[classe Principal]
 
 Exemplos práticos:
 
