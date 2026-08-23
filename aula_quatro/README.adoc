@@ -82,7 +82,7 @@ Segundo (BEZERRA, 2007, p. 123):
 
 Exemplos práticos (agregação):
 
-- link:aula_quatro/codigos/Jogador.java[Jogador]
+- link:codigos/Jogador.java[Jogador]
 - link:aula_quatro/codigos/Time.java[Time]
 - link:aula_quatro/codigos/Principal.java[Principal]
 
