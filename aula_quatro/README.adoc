@@ -99,7 +99,7 @@ Exemplos práticos:
 - link:codigos/Medico.java[Medico]
 - link:codigos/Consulta.java[Consulta]
 - link:codigos/Paciente.java[Paciente]
-- link:codigos/Principal3.java[Principal]
+- link:Principal3.java[Principal]
 
 
 
