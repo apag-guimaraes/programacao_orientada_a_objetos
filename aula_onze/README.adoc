@@ -11,163 +11,543 @@
 //make slides
 //make ebook
 
-== Diferenças entre PE e POO
+== Atividades Resolvidas
 
-image::imagens/img1.png[]
+= Exemplo Calculadora
 
-image::imagens/img2.png[]
+- Calculadora.java
+[source,java]
+public class Calculadora {
+    double n1, n2;
+public double somar(){
+    return n1+n2;
+}
+public double subtrair(){
+    return n1-n2;
+} 
+public double dividir(){
+    return n1/n2;
+}
+public double multiplicar(){
+    return n1*n2;
+}
+}
 
-image::imagens/img4.png[]
+- Main.java
+[source,java]
+public class Main {
+    public static void main(String[] args) {
+        Calculadora calculadora1= new Calculadora();
+        calculadora1.n1=2;
+        calculadora1.n2=5;
+        System.out.println("soma:"+calculadora1.somar());
+        System.out.println("subtração"+calculadora1.subtrair());
+        System.out.println("divisão"+calculadora1.dividir());
+        System.out.println("multiplicaçãoi"+calculadora1.multiplicar());
+    }
+}
 
-image::imagens/img3.png[]
+= Exemplo Carro
 
-image::imagens/img6.png[]
+- Carro.java
+[source,java]
+public class Carro {
+    String modelo;
+    int velocidade;
+    public Carro(String modelo, int velocidade) {
+        this.modelo = modelo;
+        this.velocidade = velocidade;
+    }//construtor
+    public Carro() {
+    }//construtor
+    public String getModelo() {
+        return modelo;
+    }
+    public int getVelocidade() {
+        return velocidade;
+    }
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+    public void setVelocidade(int velocidade) {
+        this.velocidade = velocidade;
+    }
+    @Override
+    public String toString() {
+        return "Carro{" +
+                "modelo='" + modelo + '\'' +
+                ", velocidade=" + velocidade +
+                '}';
+    }
+    public void acelerar(){
+        velocidade += 10;
+        System.out.println("A velocidade aumentou em 10km/h. Velocidade atual: " + velocidade + "km/h.");
+    }
+    public void frear(){
+        if(velocidade>= 10){
+            velocidade -= 10;
+            System.out.println("A velocidade diminuiu em 10km/h. Velocidade atual: " + velocidade + "km/h.");
+        }
+        else {
+            System.out.println("Você já está parado.");
+        }
+    }
+}
 
-image::imagens/img12.png[]
+- Main.java
+[source,java]
+public class Main {
+    public static void main(String[] args) {
+        Carro c = new Carro("Lamborghini", 80);
+        c.acelerar();
+        c.acelerar();
+        c.acelerar();
+        c.frear();
+        c.frear();
+    }
+}
 
-image::imagens/img7.png[]
+= Exemplo Carro / Combustivel
 
-image::imagens/img9.png[]
+- Carro.java
+[source,java]
+public class Carro {
+    private String modelo;
+    public Carro(String modelo) {
+        this.modelo = modelo;
+    }
+    public String getModelo() {
+        return modelo;
+    }
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+    @Override
+    public String toString() {
+        return "Carro{" +
+                "modelo='" + modelo + '\'' +
+                '}';
+    }
+    public void abastecer(Combustivel c, double litros){
+        double total = c.getPrecoporlitro() * litros;
+        System.out.println("Modelo do veículo: " + modelo + "\nLitros: " + litros +"\nCusto Total: " + total);
+    }
+}
 
-image::imagens/img10.png[]
+- Combustivel.java
+[source,java]
+public class Combustivel {
+    private String tipo;
+    private double precoporlitro;
+    public Combustivel(String tipo, double precoporlitro) {
+        this.tipo = tipo;
+        this.precoporlitro = precoporlitro;
+    }
+    public String getTipo() {
+        return tipo;
+    }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    public double getPrecoporlitro() {
+        return precoporlitro;
+    }
+    public void setPrecoporlitro(double precoporlitro) {
+        this.precoporlitro = precoporlitro;
+    }
+    @Override
+    public String toString() {
+        return "Combustivel{" +
+                "tipo='" + tipo + '\'' +
+                ", precoporlitro=" + precoporlitro +
+                '}';
+    }
+}
 
-image::imagens/img8.png[]
+- Main.java
+[source,java]
+public class Main {
+    public static void main(String[] args) {
+        Carro c1 = new Carro("Ferrari");
+        System.out.println(c1);
+        Combustivel com = new Combustivel("disel", 5);
+        c1.abastecer(com, 10);
+    }
+}
 
-image::imagens/img14.png[]
+= Exemplo Livro / Biblioteca
 
-image::imagens/img13.png[]
+- Livro.java
+[source,java]
+public class Livro {
+    private String titulo, autor;
+    private boolean emprestado;
+    private int qtdPaginas;
+    private double preco;
+    // construtores
+    public Livro(String titulo, String autor, boolean emprestado, int qtdPaginas, double preco) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.emprestado = emprestado;
+        this.qtdPaginas = qtdPaginas;
+        this.preco = preco;
+    }
+    public Livro() {
+    }
+    // getters
+    public String getTitulo() {
+        return titulo;
+    }
+    public String getAutor() {
+        return autor;
+    }
+    public boolean isEmprestado() {
+        return emprestado;
+    }
+    public int getQtdPaginas() {
+        return qtdPaginas;
+    }
+    public double getPreco() {
+        return preco;
+    }
+    // setters
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+    public void setEmprestado(boolean emprestado) {
+        this.emprestado = emprestado;
+    }
+    public void setQtdPaginas(int qtdPaginas) {
+        this.qtdPaginas = qtdPaginas;
+    }
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+    @Override
+    public String toString() {
+        return "Livro{" +
+                "titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", emprestado=" + emprestado +
+                ", qtdPaginas=" + qtdPaginas +
+                ", preco=" + preco +
+                '}';
+    }
+    // verifica se o livro ja esta emprestado: se estiver, faz a devolucao;
+    // se estiver disponivel, realiza o emprestimo
+    public void emprestar() {
+        if (this.emprestado) {
+            this.emprestado = false;
+            System.out.println("O livro \"" + titulo + "\" foi devolvido.");
+        } else {
+            this.emprestado = true;
+            System.out.println("O livro \"" + titulo + "\" foi emprestado.");
+        }
+    }
+}
 
-image::imagens/img5.png[]
+- Biblioteca.java
+[source,java]
+import java.util.ArrayList;
+import java.util.List;
+public class Biblioteca {
+    private String nome;
+    private List<Livro> livros;
+    // construtores
+    public Biblioteca(String nome, List<Livro> livros) {
+        this.nome = nome;
+        this.livros = livros;
+    }
+    public Biblioteca(String nome) {
+        this.nome = nome;
+        this.livros = new ArrayList<>();
+    }
+    public Biblioteca() {
+        this.livros = new ArrayList<>();
+    }
+    // getters
+    public String getNome() {
+        return nome;
+    }
+    public List<Livro> getLivros() {
+        return livros;
+    }
+    // setters
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public void setLivros(List<Livro> livros) {
+        this.livros = livros;
+    }
+    public void adicionarLivro(Livro l) {
+        this.livros.add(l);
+    }
+    public void imprimirLivroMaisCaro() {
+        if (livros.isEmpty()) {
+            System.out.println("A biblioteca nao possui livros cadastrados.");
+            return;
+        }
+        Livro maisCaro = livros.get(0);
+        for (Livro l : livros) {
+            if (l.getPreco() > maisCaro.getPreco()) {
+                maisCaro = l;
+            }
+        }
+        System.out.println("Livro mais caro: " + maisCaro);
+    }
+    public double calcularMediaPreco() {
+        if (livros.isEmpty()) {
+            return 0.0;
+        }
+        double soma = 0.0;
+        for (Livro l : livros) {
+            soma += l.getPreco();
+        }
+        return soma / livros.size();
+    }
+    public int contarLivrosAutor(String nomeAutor) {
+        int contador = 0;
+        for (Livro l : livros) {
+            if (l.getAutor() != null && l.getAutor().equalsIgnoreCase(nomeAutor)) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+}
 
-== Verificação / Instalação do OpenJDK
+- Main.java
+[source,java]
+public class Main {
+    public static void main(String[] args) {
+        Biblioteca biblioteca = new Biblioteca("Biblioteca Central");
+        Livro l1 = new Livro("Dom Casmurro", "Machado de Assis", false, 256, 39.90);
+        Livro l2 = new Livro("Memorias Postumas de Bras Cubas", "Machado de Assis", false, 208, 45.50);
+        Livro l3 = new Livro("O Cortico", "Aluisio Azevedo", false, 304, 32.00);
+        Livro l4 = new Livro("Grande Sertao: Veredas", "Guimaraes Rosa", false, 624, 89.90);
+        biblioteca.adicionarLivro(l1);
+        biblioteca.adicionarLivro(l2);
+        biblioteca.adicionarLivro(l3);
+        biblioteca.adicionarLivro(l4);
+        System.out.println("=== " + biblioteca.getNome() + " ===");
+        System.out.println("Livros cadastrados:");
+        for (Livro l : biblioteca.getLivros()) {
+            System.out.println("  " + l);
+        }
+        System.out.println();
+        System.out.println("=== Emprestimo e devolucao ===");
+        l1.emprestar();                                  // empresta
+        System.out.println("Emprestado? " + l1.isEmprestado());
+        l1.emprestar();                                  // devolve
+        System.out.println("Emprestado? " + l1.isEmprestado());
+        System.out.println();
+        System.out.println("=== Relatorios ===");
+        biblioteca.imprimirLivroMaisCaro();
+        System.out.printf("Media de preco dos livros: R$ %.2f%n", biblioteca.calcularMediaPreco());
+        System.out.println("Livros de Machado de Assis: "
+                + biblioteca.contarLivrosAutor("Machado de Assis"));
+        System.out.println("Livros de Clarice Lispector: "
+                + biblioteca.contarLivrosAutor("Clarice Lispector"));
+    }
+}
 
-Para verificar ou instalar o OpenJDK, acesse os links disponibilizados a seguir:
+- Main.java
+[source,java]
+public class Main {
+    public static void main(String[] args) {
+        Biblioteca biblioteca = new Biblioteca("Biblioteca Central");
+        Livro l1 = new Livro("Dom Casmurro", "Machado de Assis", false, 256, 39.90);
+        Livro l2 = new Livro("Memorias Postumas de Bras Cubas", "Machado de Assis", false, 208, 45.50);
+        Livro l3 = new Livro("O Cortico", "Aluisio Azevedo", false, 304, 32.00);
+        Livro l4 = new Livro("Grande Sertao: Veredas", "Guimaraes Rosa", false, 624, 89.90);
+        biblioteca.adicionarLivro(l1);
+        biblioteca.adicionarLivro(l2);
+        biblioteca.adicionarLivro(l3);
+        biblioteca.adicionarLivro(l4);
+        System.out.println("=== " + biblioteca.getNome() + " ===");
+        System.out.println("Livros cadastrados:");
+        for (Livro l : biblioteca.getLivros()) {
+            System.out.println("  " + l);
+        }
+        System.out.println();
+        System.out.println("=== Emprestimo e devolucao ===");
+        l1.emprestar();                                  // empresta
+        System.out.println("Emprestado? " + l1.isEmprestado());
+        l1.emprestar();                                  // devolve
+        System.out.println("Emprestado? " + l1.isEmprestado());
+        System.out.println();
+        System.out.println("=== Relatorios ===");
+        biblioteca.imprimirLivroMaisCaro();
+        System.out.printf("Media de preco dos livros: R$ %.2f%n", biblioteca.calcularMediaPreco());
+        System.out.println("Livros de Machado de Assis: "
+                + biblioteca.contarLivrosAutor("Machado de Assis"));
+        System.out.println("Livros de Clarice Lispector: "
+                + biblioteca.contarLivrosAutor("Clarice Lispector"));
+    }
+}
 
-- OPENJDK. How to download and install prebuilt OpenJDK packages. Disponível em: https://openjdk.java.net/install/. Acesso em: 29 de jan. 2022.
-- ORACLE. Como posso definir ou alterar a variável do sistema PATH? Disponível em: https://www.java.com/pt_BR/download/help/path.xml. Acesso em: 29 de jan. 2022.
+= Exemplo ContaBancaria
 
-== Instalação da IDE Intellij
+- ContaBancaria.java
+[source,java]
+public class ContaBancaria {
+    private String numeroConta;
+    private double saldo;
+    private String emailTitular;
+    public ContaBancaria(String numeroConta, double saldoInicial, String emailTitular) {
+        this.numeroConta = numeroConta;
+        this.saldo = saldoInicial;
+        this.emailTitular = emailTitular;
+    }
+    public void depositar(double valor) {
+        if (valor > 0) {
+            saldo += valor;
+            System.out.println("Depósito de R$ " + valor +
+                    " realizado na conta " + numeroConta);
+        }
+    }
+    public void sacar(double valor, ServicoNotificacao notificacao) {
+        if (valor > 0 && saldo >= valor) {
+            saldo -= valor;
+            System.out.println("Saque de R$ " + valor + " realizado com sucesso.");
+            notificacao.enviarEmail(emailTitular, "Foi realizado um saque de R$ " + valor
+                    + ". Saldo atual: R$ " + saldo);
+        } else {
+            System.out.println("Saldo insuficiente ou valor inválido para saque.");
+        }
+    }
+    public double getSaldo() { return saldo; }
+}
 
-Após a instalação do openJDK, o próximo passo é instalar a IDE, para fazer isso, basta usar o comando disponível abaixo:
+- ServicoNotificacao.java
+[source,java]
+public class ServicoNotificacao {
+    public void enviarEmail(String destinatario, String mensagem) {
+        System.out.println("[E-MAIL para " + destinatario + "]:" +
+                " " + mensagem);
+    }
+}
 
-- sudo snap install intellij-idea-community --classic
+- Main.java
+[source,java]
+public class Main {
+    public static void main(String[] args) {
+        ContaBancaria minhaConta = new ContaBancaria("12345-6",
+                1000.0, "cliente@email.com");
+        ServicoNotificacao emailService = new ServicoNotificacao();
+        minhaConta.depositar(500.0);
+        minhaConta.sacar(200.0, emailService);
+    }
+}
 
-== Comandos javac e java
+= Exemplo Jogador/Time
 
-A linguagem Java foi criada baseando nos princípios da orientação a objetos. Além de abordar os comandos sequenciais, desvios condicionais e laços de repetição,características típicas das linguagens estruturadas, esta linguagem usa os seguintes conceitos / recursos:
+- Jogador.java
+[source,java]
+import java.util.ArrayList;
+import java.util.List;
+class Jogador {
+    private String nome;
+    private String posicao;
+    public Jogador(String nome, String posicao) {
+        this.nome = nome;
+        this.posicao = posicao;
+    }
+    public String getNome() { return nome; }
+    public String getPosicao() { return posicao; }
+}
 
-- abstração;
-- classes; 
-- objetos; 
-- métodos; 
-- variáveis de instância; 
-- modificadores de acesso; 
-- encapsulamento;
-- relacionamentos: generalização, associação, agregação e composição; 
-- classes abstratas; 
-- interfaces;
-- polimorfismo;
-- coleções;
-- tratamento de exceções;
-- arquivos;
-- outros.
+- Time.java
+[source,java]
+import java.util.ArrayList;
+import java.util.List;
+public class Time {
+    private String nomeTime;
+    private List<Jogador> jogadores; 
+    public Time(String nomeTime) {
+        this.nomeTime = nomeTime;
+        this.jogadores = new ArrayList<>();
+    }
+    public void contratarJogador(Jogador jogador) {
+        this.jogadores.add(jogador);
+    }
+    public void listarElenco() {
+        System.out.println("=== Elenco do " + nomeTime +
+                " ===");
+        for (Jogador j : jogadores) {
+            System.out.println("- " + j.getNome() +
+                    " (" + j.getPosicao() + ")");
+        }
+    }
+}
 
-Não é necessário ter uma IDE para criar um aplicativo usando a linguagem Java. Se o JDK já estiver instalado, basta usar o bloco de notas para fazer a codificação e depois usar os comandos javac (compilador) e java (máquina virtual) para realizar as etapas de compilação e execução. Portanto, as etapas envolvidas no processo de criação de um aplicativo, pode ser resumidas em:
+- Main.java
+[source,java]
+public class Main {
+    public static void main(String[] args) {
+        Jogador j1 = new Jogador("Carlos Silva",
+                "Goleiro");
+        Jogador j2 = new Jogador("Marcos Santos",
+                "Atacante");
+        Time meuTime = new Time("Flamengo");
+        meuTime.contratarJogador(j1);
+        meuTime.contratarJogador(j2);
+        meuTime.listarElenco();
+    }
+}
 
-- codificação: o programador usa a sintaxe da linguagem para escrever um programa. Pode ser usado um editor de texto ou o editor de uma IDE;
-- compilação: o código-fonte passa por um processo de tradução. O compilador (comando javac) converte o código-fonte em linguagem de máquina, neste caso, uma linguagem específica para a máquina virtual. Esses códigos traduzidos são chamados de bytecodes.
-- interpretação: os bytecodes são lidos pela máquina virtual (comando java) e são executados.
+= Exemplo Casa/Comodo
 
-Inicialmente verifique se o JDK está instalado na sua máquina, use o comando java --version. Caso este esteja devidamente instalado, a versão do JDK será impressa. Caso seja impressa a mensagem "comando não encontrado", pode ser que o JDK ainda não foi instalado ou não foi configurado devidamente. 
+- Comodo.java
+[source,java]
+class Comodo {
+    private String nome;
+    private double tamanhoEmMetrosQuadrados;
+    public Comodo(String nome, double tamanhoEmMetrosQuadrados) {
+        this.nome = nome;
+        this.tamanhoEmMetrosQuadrados =
+                tamanhoEmMetrosQuadrados;
+    }
+    public String getNome() { return nome; }
+    public double getTamanho() { return tamanhoEmMetrosQuadrados; }
+}
 
-== Fundamentos de POO
+- Casa.java
+[source,java]
+import java.util.ArrayList;
+import java.util.List;
+class Casa {
+    private String endereco;
+    private List<Comodo> comodos; 
+    public Casa(String endereco) {
+        this.endereco = endereco;
+        this.comodos = new ArrayList<>();
+    }
+    public void adicionarComodo(String nome, double tamanho) {
+        Comodo novoComodo = new Comodo(nome, tamanho);
+        this.comodos.add(novoComodo);
+    }
+    public void exibirDetalhesCasa() {
+        System.out.println("=== Detalhes da Casa (" + endereco + ") ===");
+        for (Comodo c : comodos) {
+            System.out.println("- Cômodo: " + c.getNome() + " | Tamanho: " + c.getTamanho() + " m²");
+        }
+    }
+}
 
-O paradigma orientado a objetos é um modelo criado para resolver os problemas usando conceitos mais próximos de como compreendemos o mundo no qual interagimos.  
-
-"Pode-se dizer, então, que o termo “paradigma da orientação a objetos” é uma forma de abordar um problema. Há alguns anos, Alan Kay, um dos pais do paradigma da orientação a objetos, formulou a chamada “analogia biológica”. Nessa analogia, ele imaginou como seria um sistema de software que funcionasse como um ser vivo. Nesse sistema, cada “célula” interagiria com outras células através do envio de mensagens para realizar um objetivo comum. Além disso, cada célula se comportaria como uma unidade autônoma" (BEZERRA, p. 5, 2007).
-
-- Referência do texto entre aspas: BEZERRA, E. Princípios de Análise e Projeto de Sistemas com UML. Rio de Janeiro: Elsevier, 2007.
-
-Dessa forma, podemos entender que num sistema orientado a objetos tem-se: 
-
-- as classes são usadas para modelarem os objetos; 
-- esses objetos que residem na memória possuem características e funcionalidades; 
-- os objetos trocam mensagens; 
-- essas trocas de mensagens configuram o funcionamento do sistema.
-
-Características da programação estruturada:
-
-- programação top-down;
-- comandos sequenciais;
-- desvio condicional;
-- laço de repetição;
-- modularização.
-
-Características da progração orientada a objetos:
-
-- abstração;
-- classes;
-- objetos;
-- atributos;
-- métodos;
-- encapsulamento;
-- pacotes;
-- interface;
-- classes abstratas;
-- polimorfismo.
-
-O funcionamento de um sistema OO se dá pela interação entre os conjuntos de objetos trocados, ou seja, troca de mensagens.
-
-Pilares da POO:
-
-- encapsulamento;
-- herança;
-- polimorfismo.
-
-Exemplos de modelo:
-
-- maquete;
-- planta de uma casa;
-- receita de bolo.
-
-Definição de classe:
-
-- modelo;
-- determina os atributos e os comportamentos;
-- define a estrutura de elementos semelhantes.
-
-Definição de objeto:
-
-- é uma instanciação de uma classe;
-- representação da classe na memória virtual;
-- cada objeto tem seu estado e acessa os métodos criados na classe.
-
-Estado do objeto: valor da variável de instância em um determinado momento.
-
-Métodos do objeto: são ações que o objeto desempenha. Através deles, os valores dos atributos são modificados.
-
-Exemplos práticos:
-
-link:classes/Cachorro.java[classe Cachorro]
-
-link:classes/Principal_Cachorro.java[classe Principal]
-
-Exemplos práticos:
-
-link:classes/Cachorro.java[classe Cachorro]
-
-link:classes/Principal_Cachorro2.java[classe Principal]
-
-Abstração de classe: concentrar nas características relevantes para a modelagem das classes no sistema. Exemplo: qual seria a modelagem de uma pessoa em um sistema para escola, um sistema para auxiliar um médico e um sistema para academia?
-
-Exemplos práticos (diferenças entre PE e POO):
-
-link:classes/IMCEstruturado.java[classe IMCEstruturado]
-
-link:classes/IMCOO.java[classe IMCOO]
-
-link:classes/Pessoa.java[classe Pessoa]
-
-image::imagens/img11.png[]
+- Main.java
+[source,java]
+public class Main {
+    public static void main(String[] args) {
+        Casa minhaCasa = new Casa("Avenida Principal, 100");
+        minhaCasa.adicionarComodo("Sala de Estar", 20.5);
+        minhaCasa.adicionarComodo("Cozinha", 12.0);
+        minhaCasa.adicionarComodo("Quarto", 15.0);
+        minhaCasa.exibirDetalhesCasa();
+    }
+}
 
 
