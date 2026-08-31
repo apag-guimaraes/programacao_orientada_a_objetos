@@ -180,72 +180,48 @@ public class Main {
 - Livro.java
 [source,java]
 public class Livro {
-    private String titulo, autor;
+    private String titulo;
+    private String autor;
     private boolean emprestado;
-    private int qtdPaginas;
-    private double preco;
-    // construtores
-    public Livro(String titulo, String autor, boolean emprestado, int qtdPaginas, double preco) {
+    private int quantidadePaginas;
+    private double preco; 
+    public Livro(String titulo, String autor, boolean emprestado, int quantidadePaginas, double preco) {
         this.titulo = titulo;
         this.autor = autor;
         this.emprestado = emprestado;
-        this.qtdPaginas = qtdPaginas;
+        this.quantidadePaginas = quantidadePaginas;
         this.preco = preco;
     }
-    public Livro() {
-    }
-    // getters
     public String getTitulo() {
         return titulo;
     }
     public String getAutor() {
         return autor;
     }
-    public boolean isEmprestado() {
-        return emprestado;
-    }
-    public int getQtdPaginas() {
-        return qtdPaginas;
-    }
     public double getPreco() {
         return preco;
     }
-    // setters
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-    public void setEmprestado(boolean emprestado) {
-        this.emprestado = emprestado;
-    }
-    public void setQtdPaginas(int qtdPaginas) {
-        this.qtdPaginas = qtdPaginas;
-    }
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-    @Override
-    public String toString() {
-        return "Livro{" +
-                "titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", emprestado=" + emprestado +
-                ", qtdPaginas=" + qtdPaginas +
-                ", preco=" + preco +
-                '}';
-    }
-    // verifica se o livro ja esta emprestado: se estiver, faz a devolucao;
-    // se estiver disponivel, realiza o emprestimo
     public void emprestar() {
-        if (this.emprestado) {
-            this.emprestado = false;
-            System.out.println("O livro \"" + titulo + "\" foi devolvido.");
+        if (!emprestado) {
+            emprestado = true;
+            System.out.println("Livro emprestado com sucesso.");
         } else {
-            this.emprestado = true;
-            System.out.println("O livro \"" + titulo + "\" foi emprestado.");
+            System.out.println("O livro já está emprestado.");
         }
+    }
+    public void devolver() {
+        if (emprestado) {
+            emprestado = false;
+            System.out.println("Livro devolvido com sucesso.");
+        } else {
+            System.out.println("O livro já está disponível.");
+        }
+    }
+    public void exibirInformacoes() {
+        System.out.println("Título: " + titulo);
+        System.out.println("Autor: " + autor);
+        System.out.println("Preço: R$ " + preco);
+        System.out.println("Status: " + (emprestado ? "Emprestado" : "Disponível"));
     }
 }
 
@@ -256,136 +232,75 @@ import java.util.List;
 public class Biblioteca {
     private String nome;
     private List<Livro> livros;
-    // construtores
-    public Biblioteca(String nome, List<Livro> livros) {
-        this.nome = nome;
-        this.livros = livros;
-    }
     public Biblioteca(String nome) {
         this.nome = nome;
         this.livros = new ArrayList<>();
     }
-    public Biblioteca() {
-        this.livros = new ArrayList<>();
+    public void adicionarLivro(Livro livro) {
+        livros.add(livro);
     }
-    // getters
-    public String getNome() {
-        return nome;
-    }
-    public List<Livro> getLivros() {
-        return livros;
-    }
-    // setters
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public void setLivros(List<Livro> livros) {
-        this.livros = livros;
-    }
-    public void adicionarLivro(Livro l) {
-        this.livros.add(l);
-    }
+    // Imprime o valor mais caro
     public void imprimirLivroMaisCaro() {
+        double caro = 0;
+        int pos = 0;
+        if (!livros.isEmpty()) {
+            for (int i = 0;i<livros.size();i++) {
+                if (livros.get(i).getPreco() > caro) {
+                    caro = livros.get(i).getPreco();
+                    pos = i;
+                }
+            }
+            System.out.println("valor mais caro: "+caro);
+        }
+    }
+    // Imprime o nome do livro mais barato
+    public void imprimirLivroMaisBarato() {
+        if (!livros.isEmpty()) {
+            Livro maisBarato = livros.get(0);
+            for (Livro livro : livros) {
+                if (livro.getPreco() < maisBarato.getPreco()) {
+                    maisBarato = livro;
+                }
+            }
+            System.out.println("Livro mais barato: " + maisBarato.getTitulo() + " (R$ " + maisBarato.getPreco() + ")");
+        }
+    }
+    // Imprime a média de preço dos livros
+    public void imprimirMediaPrecos() {
         if (livros.isEmpty()) {
-            System.out.println("A biblioteca nao possui livros cadastrados.");
+            System.out.println("A biblioteca não possui livros cadastrados.");
             return;
         }
-        Livro maisCaro = livros.get(0);
-        for (Livro l : livros) {
-            if (l.getPreco() > maisCaro.getPreco()) {
-                maisCaro = l;
-            }
+        double soma = 0;
+        for (Livro livro : livros) {
+            soma += livro.getPreco();
         }
-        System.out.println("Livro mais caro: " + maisCaro);
+        double media = soma / livros.size();
+        System.out.println("Média de preço dos livros: R$ " + media);
     }
-    public double calcularMediaPreco() {
-        if (livros.isEmpty()) {
-            return 0.0;
-        }
-        double soma = 0.0;
-        for (Livro l : livros) {
-            soma += l.getPreco();
-        }
-        return soma / livros.size();
-    }
-    public int contarLivrosAutor(String nomeAutor) {
+    // Informa quantos livros um determinado autor escreveu
+    public void contarLivrosPorAutor(String nomeAutor) {
         int contador = 0;
-        for (Livro l : livros) {
-            if (l.getAutor() != null && l.getAutor().equalsIgnoreCase(nomeAutor)) {
+        for (Livro livro : livros) {
+            if (livro.getAutor().equalsIgnoreCase(nomeAutor)) {
                 contador++;
             }
         }
-        return contador;
+        System.out.println("O autor " + nomeAutor + " possui " + contador + " livro(s) cadastrado(s).");
     }
 }
-
 - Main.java
 [source,java]
 public class Main {
     public static void main(String[] args) {
-        Biblioteca biblioteca = new Biblioteca("Biblioteca Central");
-        Livro l1 = new Livro("Dom Casmurro", "Machado de Assis", false, 256, 39.90);
-        Livro l2 = new Livro("Memorias Postumas de Bras Cubas", "Machado de Assis", false, 208, 45.50);
-        Livro l3 = new Livro("O Cortico", "Aluisio Azevedo", false, 304, 32.00);
-        Livro l4 = new Livro("Grande Sertao: Veredas", "Guimaraes Rosa", false, 624, 89.90);
-        biblioteca.adicionarLivro(l1);
-        biblioteca.adicionarLivro(l2);
-        biblioteca.adicionarLivro(l3);
-        biblioteca.adicionarLivro(l4);
-        System.out.println("=== " + biblioteca.getNome() + " ===");
-        System.out.println("Livros cadastrados:");
-        for (Livro l : biblioteca.getLivros()) {
-            System.out.println("  " + l);
-        }
-        System.out.println();
-        System.out.println("=== Emprestimo e devolucao ===");
-        l1.emprestar();                                  // empresta
-        System.out.println("Emprestado? " + l1.isEmprestado());
-        l1.emprestar();                                  // devolve
-        System.out.println("Emprestado? " + l1.isEmprestado());
-        System.out.println();
-        System.out.println("=== Relatorios ===");
-        biblioteca.imprimirLivroMaisCaro();
-        System.out.printf("Media de preco dos livros: R$ %.2f%n", biblioteca.calcularMediaPreco());
-        System.out.println("Livros de Machado de Assis: "
-                + biblioteca.contarLivrosAutor("Machado de Assis"));
-        System.out.println("Livros de Clarice Lispector: "
-                + biblioteca.contarLivrosAutor("Clarice Lispector"));
-    }
-}
-
-- Main.java
-[source,java]
-public class Main {
-    public static void main(String[] args) {
-        Biblioteca biblioteca = new Biblioteca("Biblioteca Central");
-        Livro l1 = new Livro("Dom Casmurro", "Machado de Assis", false, 256, 39.90);
-        Livro l2 = new Livro("Memorias Postumas de Bras Cubas", "Machado de Assis", false, 208, 45.50);
-        Livro l3 = new Livro("O Cortico", "Aluisio Azevedo", false, 304, 32.00);
-        Livro l4 = new Livro("Grande Sertao: Veredas", "Guimaraes Rosa", false, 624, 89.90);
-        biblioteca.adicionarLivro(l1);
-        biblioteca.adicionarLivro(l2);
-        biblioteca.adicionarLivro(l3);
-        biblioteca.adicionarLivro(l4);
-        System.out.println("=== " + biblioteca.getNome() + " ===");
-        System.out.println("Livros cadastrados:");
-        for (Livro l : biblioteca.getLivros()) {
-            System.out.println("  " + l);
-        }
-        System.out.println();
-        System.out.println("=== Emprestimo e devolucao ===");
-        l1.emprestar();                                  // empresta
-        System.out.println("Emprestado? " + l1.isEmprestado());
-        l1.emprestar();                                  // devolve
-        System.out.println("Emprestado? " + l1.isEmprestado());
-        System.out.println();
-        System.out.println("=== Relatorios ===");
-        biblioteca.imprimirLivroMaisCaro();
-        System.out.printf("Media de preco dos livros: R$ %.2f%n", biblioteca.calcularMediaPreco());
-        System.out.println("Livros de Machado de Assis: "
-                + biblioteca.contarLivrosAutor("Machado de Assis"));
-        System.out.println("Livros de Clarice Lispector: "
-                + biblioteca.contarLivrosAutor("Clarice Lispector"));
+        Biblioteca minhaBiblioteca = new Biblioteca("biblioteca 1");
+        minhaBiblioteca.adicionarLivro(new Livro("Java para Iniciantes", "J. Doe", false, 300, 45.00));
+        minhaBiblioteca.adicionarLivro(new Livro("Avançando em Java", "J. Doe", false, 450, 90.00));
+        minhaBiblioteca.adicionarLivro(new Livro("Algoritmos", "Alan Turing", true, 200, 120.50));
+        minhaBiblioteca.imprimirLivroMaisCaro();
+        minhaBiblioteca.imprimirLivroMaisBarato();
+        minhaBiblioteca.imprimirMediaPrecos();
+        minhaBiblioteca.contarLivrosPorAutor("J. Doe");
     }
 }
 
